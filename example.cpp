@@ -5,7 +5,7 @@
 #include <cmath>
 #include <utility>
 #include <unistd.h>
-#include </home/fusion809/Programs/koolplot1/koolplot.h>
+#include <qcustomplot.h>
 
 using namespace std;
 
@@ -40,11 +40,11 @@ int main()
     double x0    = 0.0;
     double dx0   = 0.0;
     double h     = (t1 - t0) / double(N);
-    std::vector<double> t;
+    QVector<double> t;
     t.push_back(t0);
-    std::vector<double> x;
+    QVector<double> x;
     x.push_back(x0);
-    std::vector<double> dx;
+    QVector<double> dx;
     dx.push_back(dx0);
 
     ofstream myfile;
@@ -60,7 +60,17 @@ int main()
         usleep(1000);
     }
     myfile.close();
-    plot(t,x);
-    
+		// generate some data:
+		// create graph and assign data to it:
+		customPlot->addGraph();
+		customPlot->graph(0)->setData(t, x);
+		// give the axes some labels:
+		customPlot->xAxis->setLabel("t");
+		customPlot->yAxis->setLabel("x");
+		// set axes ranges, so we see all data:
+		customPlot->xAxis->setRange(-1, 1);
+		customPlot->yAxis->setRange(0, 1);
+		customPlot->replot();
+
     return 0;
 }

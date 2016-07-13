@@ -1,4 +1,4 @@
 .project
-example
+example[0-9]*
 example.o
 .vscode
