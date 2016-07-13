@@ -32,7 +32,7 @@ std::pair<double, double> RK4(double t, double x, double dx, double h)
 
 int main()
 {
-    double N     = 1000.0;
+    double N     = 100000.0;
     double t0    = 0.0;
     double t1    = 10.0;
     double x0    = 0.0;
@@ -60,5 +60,5 @@ int main()
     myfile << t[N];
 		myfile << " " << x[N];
 		myfile.close();
-		system("gnuplot -p -e \"set key off; set title 'Simple Pendulum' font 'Liberation Sans Bold,16'; set style line 1 lc rgb '#0060ad' lt 2 lw 2 pt 0 ps 1.0; plot 'example.txt' with linespoints ls 1\"");
+		system("gnuplot -p -e \"set key off; set xlabel 't'; set ylabel 'theta'; set title 'Simple Pendulum' font 'Liberation Sans Bold,16'; set style line 1 lc rgb '#0060ad' lt 2 lw 2 pt 0 ps 1.0; plot 'example.txt' with linespoints ls 1\"");
 }
