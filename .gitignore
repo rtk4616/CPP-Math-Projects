@@ -1,6 +1,5 @@
 .project
-example[0-9]*
-example.o
+*.o
 .vscode
 example
 *.png
