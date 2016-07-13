@@ -5,8 +5,6 @@
 #include <cmath>
 #include <utility>
 #include <unistd.h>
-#include <qcustomplot.h>
-
 using namespace std;
 
 double dx2(double t, double x, double dx)
@@ -40,11 +38,11 @@ int main()
     double x0    = 0.0;
     double dx0   = 0.0;
     double h     = (t1 - t0) / double(N);
-    QVector<double> t;
+    std::vector<double> t;
     t.push_back(t0);
-    QVector<double> x;
+    std::vector<double> x;
     x.push_back(x0);
-    QVector<double> dx;
+    std::vector<double> dx;
     dx.push_back(dx0);
 
     ofstream myfile;
@@ -55,22 +53,12 @@ int main()
         t.push_back(  t[i-1] + h);
         x.push_back(  x[i-1] + diff.first  );
         dx.push_back(dx[i-1] + diff.second );
-        myfile << "\nt is " << t[i-1];
-        myfile << "; x is " << x[i-1];
+        myfile << t[i-1];
+        myfile << " " << x[i-1] << "\n";
         usleep(1000);
     }
-    myfile.close();
-		// generate some data:
-		// create graph and assign data to it:
-		customPlot->addGraph();
-		customPlot->graph(0)->setData(t, x);
-		// give the axes some labels:
-		customPlot->xAxis->setLabel("t");
-		customPlot->yAxis->setLabel("x");
-		// set axes ranges, so we see all data:
-		customPlot->xAxis->setRange(-1, 1);
-		customPlot->yAxis->setRange(0, 1);
-		customPlot->replot();
-
-    return 0;
+    myfile << t[N];
+		myfile << " " << x[N];
+		myfile.close();
+		system("gnuplot -p -e \"plot 'example.txt'\"");
 }
