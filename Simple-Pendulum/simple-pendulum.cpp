@@ -16,7 +16,7 @@ double h     = (t1 - t0) / double(N);
 
 double dx2(double t, double x, double dx)
 {
-	return {-9.8*cos(x + dx)};
+	return {-9.8*cos(x)};
 }
 
 std::pair<double, double> RK4(double t, double x, double dx, double h)
@@ -47,7 +47,7 @@ int main()
     dx.push_back(dx0);
 
     ofstream myfile;
-    myfile.open("simppenadj.txt");
+    myfile.open("simple-pendulum.txt");
 
     for(int i = 1; i<=N; i++) {
         auto diff = RK4(t[i-1],x[i-1],dx[i-1],h);
@@ -61,7 +61,7 @@ int main()
     myfile << t[N];
 		myfile << " " << x[N];
 		myfile.close();
-		system("gnuplot -p -e \"set key off; set xlabel 't'; set ylabel 'theta'; set title 'Simple Pendulum' font 'Liberation Sans Bold,16'; set style line 1 lc rgb '#0060ad' lt 2 lw 2 pt 0 ps 1.0; plot 'simppenadj.txt' with linespoints ls 1\"");
+		system("gnuplot -p -e \"set key off; set xlabel 't'; set ylabel 'theta'; set title 'Simple Pendulum' font 'Liberation Sans Bold,16'; set style line 1 lc rgb '#0060ad' lt 2 lw 2 pt 0 ps 1.0; plot 'simple-pendulum.txt' with linespoints ls 1\"");
 		cout << x[N];
 		return 0;
 }
