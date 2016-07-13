@@ -1,3 +1,4 @@
+#!/usr/bin/octave
 # Plotting simppenadj.txt
 A     = importdata('simppenadj.txt');
 t     = A(:,1);
