@@ -5,11 +5,14 @@
 #include <cmath>
 #include <utility>
 #include <unistd.h>
+#include <algorithm>
+
+#define M_PI 3.14159265358979323846  /* pi */
 using namespace std;
 
 double N     = 1000.0;                 // Number of domain elements we're integrating over
 double t0    = 0.0;										 // Starting time
-double t1    = 10.0;
+double t1    = 10;
 double x0    = 0.0;
 double dx0   = 0.0;
 double h     = (t1 - t0) / double(N);  // step size
@@ -49,6 +52,9 @@ int main()
     ofstream myfile;
     myfile.open("simple-pendulum.txt");
 
+    ofstream myfiledx;
+    myfiledx.open("simple-pendulum-dx.txt");
+
     for(int i = 1; i<=N; i++)
 		{
         auto diff = RK4(t[i-1],x[i-1],dx[i-1],h);
@@ -57,12 +63,29 @@ int main()
         dx.push_back(dx[i-1] + diff.second );
         myfile << t[i-1];
         myfile << " " << x[i-1] << "\n";
+        myfiledx << t[i-1];
+        myfiledx << " " << dx[i-1] << "\n";
         usleep(1000);
     }
     myfile << t[N];
 		myfile << " " << x[N];
+    myfiledx << t[N];
+    myfiledx << " " << dx[N];
 		myfile.close();
+    myfiledx.close();
 		system("gnuplot -p -e \"set key off; set xlabel 't'; set ylabel 'theta'; set title 'Simple Pendulum' font 'Liberation Sans Bold,16'; set style line 1 lc rgb '#0060ad' lt 2 lw 2 pt 0 ps 1.0; plot 'simple-pendulum.txt' with linespoints ls 1\"");
-		cout << x[N];
+    system("gnuplot -p -e \"set key off; set xlabel 't'; set ylabel 'd theta/dt'; set title 'Simple Pendulum' font 'Liberation Sans Bold,16'; set style line 1 lc rgb '#0060ad' lt 2 lw 2 pt 0 ps 1.0; plot 'simple-pendulum-dx.txt' with linespoints ls 1\"");
+    double minx = x[0];
+    for(int i=0;i<N;i++)
+    {
+        if(x[i]<minx)
+        minx=x[i];
+    }
+    std::cout << "Error: " << std::scientific;
+    std::cout.precision(15);
+    cout << minx + M_PI;
+    std::cout << "X minimum: " << std::scientific;
+    std::cout.precision(15);
+    cout << minx;
 		return 0;
 }
