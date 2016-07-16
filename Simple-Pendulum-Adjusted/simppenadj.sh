@@ -1,2 +1,3 @@
 #!/bin/sh
-gnuplot -p -c simppenadj.gp
+octave --no-gui -q simppenadj.m
+gpicview simppenadj-standard-plot.png simppenadj-phase-plot.png
