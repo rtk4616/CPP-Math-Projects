@@ -7,3 +7,9 @@ example
 *.eps
 *.log
 *.pdf
+*.svg
+*.txt
+*.xz
+pkg
+src
+CPP-Math-Projects/*

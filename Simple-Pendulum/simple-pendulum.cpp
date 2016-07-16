@@ -78,9 +78,7 @@ int main()
     myfiledx << " " << dx[N];
 		myfile.close();
     myfiledx.close();
-		system("gnuplot -p -e \"set key off; set xlabel 't'; set ylabel 'theta'; set title 'Simple Pendulum' font 'Liberation Sans Bold,16'; set style line 1 lc rgb '#0060ad' lt 2 lw 2 pt 0 ps 1.0; plot 'simple-pendulum.txt' with linespoints ls 1\"");
-    system("gnuplot -p -e \"set key off; set xlabel 't'; set ylabel 'd theta/dt'; set title 'Simple Pendulum' font 'Liberation Sans Bold,16'; set style line 1 lc rgb '#0060ad' lt 2 lw 2 pt 0 ps 1.0; plot 'simple-pendulum-dx.txt' with linespoints ls 1\"");
-    system("gnuplot -p -e \"set key off; set xlabel 'theta'; set ylabel 'd theta/dt'; set title 'Simple Pendulum' font 'Liberation Sans Bold,16'; set style line 1 lc rgb '#0060ad' lt 2 lw 2 pt 0 ps 1.0; plot 'simple-pendulum-phase.txt' with linespoints ls 1\"");
+		system("gnuplot -p simple-pendulum.gp");
     double minx = x[0];
     for(int i=0;i<N;i++)
     {
