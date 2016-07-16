@@ -47,7 +47,9 @@ int main()
     dx.push_back(dx0);
 
     ofstream myfile;
+		ofstream myfiledx;
     myfile.open("simppenadj.txt");
+		myfiledx.open("simppenadjdx.txt");
 
     for(int i = 1; i<=N; i++) {
         auto diff = RK4(t[i-1],x[i-1],dx[i-1],h);
@@ -56,11 +58,16 @@ int main()
         dx.push_back(dx[i-1] + diff.second );
         myfile << t[i-1];
         myfile << " " << x[i-1] << "\n";
+				myfiledx << x[i-1];
+				myfiledx << " " << dx[i-1] << "\n";
         usleep(1000);
     }
     myfile << t[N];
 		myfile << " " << x[N];
 		myfile.close();
+		myfiledx << x[N];
+		myfiledx << " " << dx[N];
+		myfiledx.close();
 		system("./simppenadj.sh");
 		cout << x[N];
 		return 0;
