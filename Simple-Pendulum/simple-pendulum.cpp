@@ -55,6 +55,9 @@ int main()
     ofstream myfiledx;
     myfiledx.open("simple-pendulum-dx.txt");
 
+    ofstream myfilephase;
+    myfilephase.open("simple-pendulum-phase.txt");
+
     for(int i = 1; i<=N; i++)
 		{
         auto diff = RK4(t[i-1],x[i-1],dx[i-1],h);
@@ -65,6 +68,8 @@ int main()
         myfile << " " << x[i-1] << "\n";
         myfiledx << t[i-1];
         myfiledx << " " << dx[i-1] << "\n";
+        myfilephase << x[i-1];
+        myfilephase << " " << dx[i-1] << "\n";
         usleep(1000);
     }
     myfile << t[N];
@@ -75,6 +80,7 @@ int main()
     myfiledx.close();
 		system("gnuplot -p -e \"set key off; set xlabel 't'; set ylabel 'theta'; set title 'Simple Pendulum' font 'Liberation Sans Bold,16'; set style line 1 lc rgb '#0060ad' lt 2 lw 2 pt 0 ps 1.0; plot 'simple-pendulum.txt' with linespoints ls 1\"");
     system("gnuplot -p -e \"set key off; set xlabel 't'; set ylabel 'd theta/dt'; set title 'Simple Pendulum' font 'Liberation Sans Bold,16'; set style line 1 lc rgb '#0060ad' lt 2 lw 2 pt 0 ps 1.0; plot 'simple-pendulum-dx.txt' with linespoints ls 1\"");
+    system("gnuplot -p -e \"set key off; set xlabel 'theta'; set ylabel 'd theta/dt'; set title 'Simple Pendulum' font 'Liberation Sans Bold,16'; set style line 1 lc rgb '#0060ad' lt 2 lw 2 pt 0 ps 1.0; plot 'simple-pendulum-phase.txt' with linespoints ls 1\"");
     double minx = x[0];
     for(int i=0;i<N;i++)
     {
