@@ -1,7 +1,7 @@
 # theta vs. t
 set key off
 set xlabel 't'
-set ylabel 'theta'
+set ylabel 'θ'
 set terminal svg
 set out "simple-pendulum-standard.svg"
 set title 'Simple Pendulum' font 'Liberation Sans Bold,16'
@@ -12,7 +12,7 @@ set out
 # dtheta/dt vs t
 set key off
 set xlabel 't'
-set ylabel 'd theta/dt'
+set ylabel 'dθ/dt'
 set terminal svg
 set out "simple-pendulum-derivative.svg"
 set title 'Simple Pendulum' font 'Liberation Sans Bold,16'

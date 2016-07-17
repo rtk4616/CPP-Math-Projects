@@ -1,6 +1,6 @@
 set key off
 set xlabel 't'
-set ylabel "theta"
+set ylabel "θ"
 set terminal svg
 set out 'simppenadj.svg'
 set title "d2y/dx2 = -9.8 cos(x + dy/dx)" font 'Liberation Sans Bold,16';

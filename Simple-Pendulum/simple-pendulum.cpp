@@ -73,12 +73,12 @@ int main()
         usleep(1000);
     }
     myfile << t[N];
-		myfile << " " << x[N];
+	myfile << " " << x[N];
     myfiledx << t[N];
     myfiledx << " " << dx[N];
-		myfile.close();
+	myfile.close();
     myfiledx.close();
-		system("gnuplot -p simple-pendulum.gp");
+	system("gnuplot -p simple-pendulum.gp");
     double minx = x[0];
     for(int i=0;i<N;i++)
     {
@@ -91,5 +91,5 @@ int main()
     std::cout << "X minimum: " << std::scientific;
     std::cout.precision(15);
     cout << minx;
-		return 0;
+	return 0;
 }

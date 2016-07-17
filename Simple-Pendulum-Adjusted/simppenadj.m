@@ -9,9 +9,9 @@ figure(1)
 it1 = plot(t,theta);
 H1 = xlabel('t','FontSize',16,'FontWeight','bold')
 set(H1, 'interpreter', 'latex')
-J1 = ylabel('\theta','FontSize',16,'FontWeight','bold')
+J1 = ylabel('θ','FontSize',16,'FontWeight','bold')
 set(J1, 'interpreter', 'latex')
-K1 = title('{d^{2}\theta}/{d{t^{2}}} = -9.8 cos({\theta + {d\theta}/{dt}})','FontSize',18,'FontWeight','bold')
+K1 = title('{d^{2}θ}/{d{t^{2}}} = -9.8 cos({θ + {dθ}/{dt}})','FontSize',18,'FontWeight','bold')
 set(K1, 'interpreter', 'latex')
 figure(2)
 it2 = plot(theta,dtheta);
