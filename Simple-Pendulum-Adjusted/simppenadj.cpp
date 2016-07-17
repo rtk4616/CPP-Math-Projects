@@ -68,7 +68,7 @@ int main()
 		myfiledx << x[N];
 		myfiledx << " " << dx[N];
 		myfiledx.close();
-		system("./simppenadj.sh");
+    system("./simppenadj.sh");
 		cout << x[N];
 		return 0;
 }
