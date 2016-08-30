@@ -19,7 +19,7 @@ double h     = (t1 - t0) / double(N);  // step size
 
 double dx2(double t, double x, double dx)
 {
-	return {-9.8*cos(x)};
+	return { -9.8*cos(x) };
 }
 
 std::pair<double, double> RK4(double t, double x, double dx, double h)
@@ -35,9 +35,9 @@ std::pair<double, double> RK4(double t, double x, double dx, double h)
 	l3 = h*(dx+k2/2);
 	k4 = h*dx2(t+h,x+l3,dx+k3);
 	l4 = h*(dx+k3);
-  diff1 = (l1+2*l2+2*l3+l4)/float(6); // diff in x.
-  diff2 = (k1+2*k2+2*k3+k4)/float(6); // diff in y.
-  return {diff1, diff2};
+        diff1 = (l1+2*l2+2*l3+l4)/float(6); // diff in x.
+        diff2 = (k1+2*k2+2*k3+k4)/float(6); // diff in y.
+        return {diff1, diff2};
 }
 
 int main()
@@ -59,7 +59,7 @@ int main()
     myfilephase.open("simple-pendulum-phase.txt");
 
     for(int i = 1; i<=N; i++)
-		{
+    {
         auto diff = RK4(t[i-1],x[i-1],dx[i-1],h);
         t.push_back(  t[i-1] + h);
         x.push_back(  x[i-1] + diff.first  );
@@ -73,14 +73,14 @@ int main()
         usleep(1000);
     }
     myfile << t[N];
-		myfile << " " << x[N];
+    myfile << " " << x[N];
     myfiledx << t[N];
     myfiledx << " " << dx[N];
-		myfile.close();
+    myfile.close();
     myfiledx.close();
-		system("gnuplot -p simple-pendulum.gp");
+    system("gnuplot -p simple-pendulum.gp");
     double minx = x[0];
-		// determine the min of x
+    // determine the min of x
     for(int i=0;i<N;i++)
     {
         if(x[i]<minx)
@@ -90,8 +90,6 @@ int main()
     std::cout << "Error: " << std::scientific;
     std::cout.precision(15);
     cout << minx + M_PI;
-    std::cout << "X minimum: " << std::scientific;
-    std::cout.precision(15);
-    cout << minx;
-	return 0;
+    cout << "x[N] is: " << x[N];
+    return 0;
 }
