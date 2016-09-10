@@ -60,7 +60,7 @@ int main()
 
     for(int i = 1; i<=N; i++)
     {
-        auto diff = RK4(t[i-1],x[i-1],dx[i-1],h);
+        std::pair<double, double> diff = RK4(t[i-1],x[i-1],dx[i-1],h);
         t.push_back(  t[i-1] + h);
         x.push_back(  x[i-1] + diff.first  );
         dx.push_back(dx[i-1] + diff.second );
