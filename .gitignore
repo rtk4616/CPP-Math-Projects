@@ -1,6 +1,5 @@
 .project
 *.o
-.vscode
 example
 *.png
 *.tex
