@@ -11,7 +11,7 @@
 using namespace std;
 
 double N     = 1000.0;                 // Number of domain elements we're integrating over
-double t0    = 0.0;										 // Starting time
+double t0    = 0.0;                     // Starting time
 double t1    = 10;
 double x0    = 0.0;
 double dx0   = 0.0;
@@ -35,9 +35,9 @@ std::pair<double, double> RK4(double t, double x, double dx, double h)
 	l3 = h*(dx+k2/2);
 	k4 = h*dx2(t+h,x+l3,dx+k3);
 	l4 = h*(dx+k3);
-        diff1 = (l1+2*l2+2*l3+l4)/float(6); // diff in x.
-        diff2 = (k1+2*k2+2*k3+k4)/float(6); // diff in y.
-        return {diff1, diff2};
+    diff1 = (l1+2*l2+2*l3+l4)/float(6); // diff in x.
+    diff2 = (k1+2*k2+2*k3+k4)/float(6); // diff in y.
+    return {diff1, diff2};
 }
 
 int main()
