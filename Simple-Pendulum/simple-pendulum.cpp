@@ -11,7 +11,7 @@
 using namespace std;
 
 double N     = 1000.0;                 // Number of domain elements we're integrating over
-double t0    = 0.0;                     // Starting time
+double t0    = 0.0;                    // Starting time
 double t1    = 10;
 double x0    = 0.0;
 double dx0   = 0.0;
