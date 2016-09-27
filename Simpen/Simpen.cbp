@@ -33,6 +33,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+		<Unit filename="simple-pendulum.gp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
