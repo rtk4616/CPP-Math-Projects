@@ -89,7 +89,7 @@ int main()
 
     std::cout << "Error: " << std::scientific;
     std::cout.precision(15);
-    cout << minx + M_PI;
-    cout << ".\nx[N] is: " << x[N] << ".";
+    std::cout << minx + M_PI;
+    std::cout << ".\nx[N] is: " << x[N] << ".";
     return 0;
 }
