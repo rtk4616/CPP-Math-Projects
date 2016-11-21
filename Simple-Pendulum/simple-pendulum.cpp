@@ -7,15 +7,15 @@
 #include <unistd.h>
 #include <algorithm>
 
-#define M_PI 3.14159265358979323846  /* pi */
+#define M_PI 3.14159265358979323846     /* pi */
 using namespace std;
 
 double N     = 10000.0;                 // Number of domain elements we're integrating over
-double t0    = 0.0;                    // Starting time
+double t0    = 0.0;                     // Starting time
 double t1    = 10;
 double x0    = 0.0;
 double dx0   = 0.0;
-double h     = (t1 - t0) / double(N);  // step size
+double h     = (t1 - t0) / double(N);   // step size
 
 double dx2(double t, double x, double dx)
 {

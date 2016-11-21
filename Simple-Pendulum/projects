@@ -20,13 +20,16 @@ indent_mode=2
 [project]
 name=Simple-Pendulum
 base_path=/home/fusion809/Documents/CodeLite/CPP-Math-Projects/Simple-Pendulum
+description=
 
 [long line marker]
 long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=-1
+current_page=0
+FILE_NAME_0=1951;C++;0;EUTF-8;1;1;0;%2Fhome%2Ffusion809%2FDocuments%2FCodeLite%2FCPP-Math-Projects%2FSimple-Pendulum%2Fsimple-pendulum.cpp;0;4
+FILE_NAME_1=366;None;0;EUTF-8;1;1;0;%2Fhome%2Ffusion809%2FDocuments%2FCodeLite%2FCPP-Math-Projects%2FSimple-Pendulum%2Fsimple-pendulum.gp;0;4
 
 [VTE]
-last_dir=/home/fusion809
+last_dir=/home/fusion809/Documents/CodeLite/CPP-Math-Projects/Simple-Pendulum
