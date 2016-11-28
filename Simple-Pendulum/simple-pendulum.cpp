@@ -7,19 +7,19 @@
 #include <unistd.h>
 #include <algorithm>
 
-#define M_PI 3.14159265358979323846     /* pi */
+#define M_PI 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679;     /* pi */
 using namespace std;
 
-double N     = 10000.0;                 // Number of domain elements we're integrating over
-double t0    = 0.0;                     // Starting time
+double N     = 100000.0;                 // Number of domain elements we're integrating over
+double t0    = 0.0;                      // Starting time
 double t1    = 10;
 double x0    = 0.0;
 double dx0   = 0.0;
-double h     = (t1 - t0) / double(N);   // step size
+double h     = (t1 - t0) / double(N);    // step size
 
 double dx2(double t, double x, double dx)
 {
-    return { -9.8*cos(x) };
+    return -9.8*cos(x);
 }
 
 std::pair<double, double> RK4(double t, double x, double dx, double h)
@@ -35,8 +35,8 @@ std::pair<double, double> RK4(double t, double x, double dx, double h)
     l3 = h*(dx+k2/2);
     k4 = h*dx2(t+h,x+l3,dx+k3);
     l4 = h*(dx+k3);
-    diff1 = (l1+2*l2+2*l3+l4)/float(6); // diff in x.
-    diff2 = (k1+2*k2+2*k3+k4)/float(6); // diff in y.
+    diff1 = (l1+2*l2+2*l3+l4)/float(6);  // diff in x.
+    diff2 = (k1+2*k2+2*k3+k4)/float(6);  // diff in y.
     return {diff1, diff2};
 }
 
@@ -87,7 +87,7 @@ int main()
         minx=x[i];
     }
 
-    std::cout << "Error: " << std::scientific;
+    std::cout << "Error:    " << std::scientific;
     std::cout.precision(15);
     std::cout << minx + M_PI;
     std::cout << ".\nx[N] is: " << x[N] << ".";

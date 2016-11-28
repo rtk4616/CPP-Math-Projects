@@ -1,0 +1,7 @@
+[default]
+name=Default
+device=local
+runtime=host
+config-opts=
+prefix=/home/fusion809/.var/app/org.gnome.Builder/cache/gnome-builder/install/Simple-Pendulum/host
+default=true
