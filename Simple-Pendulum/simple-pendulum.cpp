@@ -7,7 +7,6 @@
 #include <unistd.h>
 #include <algorithm>
 
-#define M_PI 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679;     /* pi */
 using namespace std;
 
 double N     = 100000.0;                 // Number of domain elements we're integrating over
