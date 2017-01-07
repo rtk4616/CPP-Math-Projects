@@ -1,3 +1,7 @@
+// Simple Pendulum solver
+// This program solves the problem of the simple pendulum, operating under 
+// Newtonian gravity with the acceleration due to gravity being relatively 
+// constant at 9.8 m/s^2, with x being the angle from the x axis. 
 #include <iostream>
 #include <vector>
 #include <string>
