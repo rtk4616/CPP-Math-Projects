@@ -30,8 +30,8 @@ double dx2(double g, double l, double t, double x, double dx)
 
 std::pair<double, double> RK4(double t, double x, double dx, double h)
 {
-    // k values are diffs in dy/dx.
-    // l values are diffs in x.
+    // kn values are diffs in dy/dx.
+    // ln values are diffs in x.
     double k1    = h * dx2(g, l, t,       x,        dx);
     double l1    = h * dx;
     double k2    = h * dx2(g, l, t + h/2, x + l1/2, dx + k1/2);
@@ -82,7 +82,7 @@ int main()
     myfiledx << t[N];
     myfiledx << " "   << dx[N];
     myfile.close();
-    myfiledx.close();
+    myfiledx.close();    
     system("gnuplot -p simple-pendulum.gp");
     double minx = x[0];
     // determine the min of x
