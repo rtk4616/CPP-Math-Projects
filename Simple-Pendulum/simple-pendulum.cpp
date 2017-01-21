@@ -53,7 +53,6 @@ int main()
     x.push_back(x0);
     std::vector<double> dx;
     dx.push_back(dx0);
-
     ofstream myfile;
     myfile.open("simple-pendulum.txt");
 
@@ -82,7 +81,7 @@ int main()
     myfiledx << t[N];
     myfiledx << " "   << dx[N];
     myfile.close();
-    myfiledx.close();    
+    myfiledx.close();
     system("gnuplot -p simple-pendulum.gp");
     double minx = x[0];
     // determine the min of x
@@ -91,7 +90,6 @@ int main()
         if(x[i]<minx)
         minx=x[i];
     }
-
     std::cout << "Error:    " << std::scientific;
     std::cout.precision(15);
     std::cout << minx + M_PI;
