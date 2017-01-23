@@ -55,10 +55,8 @@ int main()
     dx.push_back(dx0);
     ofstream myfile;
     myfile.open("simple-pendulum.txt");
-
     ofstream myfiledx;
     myfiledx.open("simple-pendulum-dx.txt");
-
     ofstream myfilephase;
     myfilephase.open("simple-pendulum-phase.txt");
 
