@@ -58,6 +58,8 @@ int main()
     myfiledx.open("randomexample1-dx.txt");
     ofstream myfilephase;
     myfilephase.open("randomexample1-phase.txt");
+    double minx = x[0];
+    double maxx = x[0];
 
     for(int i = 1; i<=N; i++)
     {
@@ -71,6 +73,13 @@ int main()
         myfiledx    << " "     << dx[i-1]  << "\n";
         myfilephase << x[i-1];
         myfilephase << " "     << dx[i-1]  << "\n";
+        if(x[i]<minx) 
+        {
+           minx=x[i];
+        } else if(x[i]>maxx) 
+        {
+           maxx=x[i];
+        }
         usleep(1000);
     }
     myfile   << t[N];
@@ -80,12 +89,10 @@ int main()
     myfile.close();
     myfiledx.close();
     system("gnuplot -p main.gp");
-    double minx = x[0];
-    // determine the min of x
-    for(int i=0;i<N;i++)
-    {
-        if(x[i]<minx)
-        minx=x[i];
-    }
+    std::cout << "Minimum (x):    " << std::scientific;
+    std::cout.precision(15);
+    std::cout << minx << "\n";
+    std::cout << "Maximum (x):    ";
+    std::cout << maxx;
     return 0;
 }
