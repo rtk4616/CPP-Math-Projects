@@ -15,24 +15,28 @@ double t0    = 0.01;                     // Starting time
 double t1    = 10;                       // End time
 double x0    = 0.0;                      // Initial x value
 double dx0   = 1.0;                      // Initial dx value
+double k     = 1.0;                      // parameters
+double l     = 1.0;
+double m     = 1.0;
+double n     = 1.0;
 double h     = (t1 - t0) / double(N);    // step size
 
-double dx2(double t, double x, double dx)
+double dx2(double k, double l, double m, double n, double t, double x, double dx)
 {
-    return - (2/t)*dx - (1/(t*t))*x + (t+1)/(t*t);
+    return - (k/t)*dx - (l/(t*t))*x + m*(t+n)/(t*t);
 }
 
 std::pair<double, double> RK4(double t, double x, double dx, double h)
 {
     // kn values are diffs in dy/dx.
     // ln values are diffs in x.
-    double k1    = h * dx2(t,       x,        dx);
+    double k1    = h * dx2(k, l, m, n, t,       x,        dx);
     double l1    = h * dx;
-    double k2    = h * dx2(t + h/2, x + l1/2, dx + k1/2);
+    double k2    = h * dx2(k, l, m, n, t + h/2, x + l1/2, dx + k1/2);
     double l2    = h * (dx + k1/2);
-    double k3    = h * dx2(t + h/2, x + l2/2, dx + k2/2);
+    double k3    = h * dx2(k, l, m, n, t + h/2, x + l2/2, dx + k2/2);
     double l3    = h * (dx + k2/2);
-    double k4    = h * dx2(t + h,   x + l3,   dx + k3);
+    double k4    = h * dx2(k, l, m, n, t + h,   x + l3,   dx + k3);
     double l4    = h * (dx + k3);
     double diff1 = (l1 + 2 * l2 + 2 * l3 + l4)/float(6);  // diff in x.
     double diff2 = (k1 + 2 * k2 + 2 * k3 + k4)/float(6);  // diff in y.
