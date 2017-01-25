@@ -47,31 +47,42 @@ int main()
 {
     std::vector<double> t;
     t.push_back(t0);
+
     std::vector<double> x;
     x.push_back(x0);
+
     std::vector<double> dx;
     dx.push_back(dx0);
+
     ofstream myfile;
     myfile.open("randomexample1.txt");
+
     ofstream myfiledx;
     myfiledx.open("randomexample1-dx.txt");
+
     ofstream myfilephase;
     myfilephase.open("randomexample1-phase.txt");
+
     double minx = x[0];
     double maxx = x[0];
 
     for(int i = 1; i<=N; i++)
     {
         std::pair<double, double> diff = RK4(t[i-1],x[i-1],dx[i-1],h);
+
         t.push_back(   t[i-1] + h);
         x.push_back(   x[i-1] + diff.first  );
         dx.push_back( dx[i-1] + diff.second );
+
         myfile      << t[i-1];
         myfile      << " "     << x[i-1]   << "\n";
+
         myfiledx    << t[i-1];
         myfiledx    << " "     << dx[i-1]  << "\n";
+
         myfilephase << x[i-1];
         myfilephase << " "     << dx[i-1]  << "\n";
+
         if(x[i]<minx) 
         {
            minx=x[i];
@@ -79,20 +90,29 @@ int main()
         {
            maxx=x[i];
         }
+
         usleep(1000);
     }
+
     myfile   << t[N];
     myfile   << " "   << x[N];
+
     myfiledx << t[N];
     myfiledx << " "   << dx[N];
+
     myfile.close();
     myfiledx.close();
+
     system("gnuplot -p main.gp");
-    system("inkscape randomexample1-standard.svg -e randomexample1-standard.png -W 2000");
+    system("rsvg-convert -o randomexample1-standard.png -w 2000 randomexample1-standard.svg");
+    system("rsvg-convert -o randomexample1-derivatve.png -w 2000 randomexample1-derivatve.svg");
+    system("rsvg-convert -o randomexample1-phase.png -w 2000 randomexample1-phase.svg");
+
     std::cout << "Minimum (x):    " << std::scientific;
     std::cout.precision(15);
     std::cout << minx << "\n";
     std::cout << "Maximum (x):    ";
     std::cout << maxx;
+
     return 0;
 }

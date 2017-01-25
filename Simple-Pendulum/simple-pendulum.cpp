@@ -77,6 +77,7 @@ int main()
         minx=x[i];
         usleep(1000);
     }
+
     myfile   << t[N];
     myfile   << " "   << x[N];
     myfiledx << t[N];
@@ -84,6 +85,9 @@ int main()
     myfile.close();
     myfiledx.close();
     system("gnuplot -p simple-pendulum.gp");
+    system("rsvg-convert -w 2000 -o simple-pendulum-standard.png simple-pendulum-standard.svg");
+    system("rsvg-convert -w 2000 -o simple-pendulum-derivative.png simple-pendulum-derivative.svg");
+    system("rsvg-convert -w 2000 -o simple-pendulum-phase.png simple-pendulum-phase.svg");
     std::cout << "Error:    " << std::scientific;
     std::cout.precision(15);
     std::cout << minx + M_PI;
