@@ -15,8 +15,8 @@ double t0    = 0.01;                     // Starting time
 double t1    = 10;                       // End time
 double x0    = 0.0;                      // Initial x value
 double dx0   = 1.0;                      // Initial dx value
-double k     = 1.0;                      // parameters
-double l     = 1.0;
+double k     = 2.0;                      // parameters
+double l     = 0.5;
 double m     = 1.0;
 double n     = 1.0;
 double h     = (t1 - t0) / double(N);    // step size
@@ -88,6 +88,7 @@ int main()
     myfile.close();
     myfiledx.close();
     system("gnuplot -p main.gp");
+    system("inkscape randomexample1-standard.svg -e randomexample1-standard.png -W 2000");
     std::cout << "Minimum (x):    " << std::scientific;
     std::cout.precision(15);
     std::cout << minx << "\n";
