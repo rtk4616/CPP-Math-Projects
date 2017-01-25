@@ -1,7 +1,3 @@
-// Simple Pendulum solver
-// This program solves the problem of the simple pendulum, operating under 
-// Newtonian gravity with the acceleration due to gravity being relatively 
-// constant at 9.8 m/s^2, with x being the angle from the x axis. 
 // Copyright (C) 2016-2017 Brenton Horne
 #include <iostream>
 #include <vector>
@@ -15,11 +11,10 @@
 using namespace std;
 
 double N     = 100000.0;                 // Number of domain elements we're integrating over
-double t0    = 1.0;                      // Starting time
+double t0    = 0.01;                     // Starting time
 double t1    = 10;                       // End time
-double x0    = 0.0;                      // Initial angle from the x axis
-double dx0   = 0.0;                      // Initial rate of change in angle from x axis
-double k     = 1;                        // Length of pendulum bob
+double x0    = 0.0;                      // Initial x value
+double dx0   = 1.0;                      // Initial dx value
 double h     = (t1 - t0) / double(N);    // step size
 
 double dx2(double t, double x, double dx)
