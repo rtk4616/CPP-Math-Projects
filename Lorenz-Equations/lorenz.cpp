@@ -174,7 +174,7 @@ int main()
     system("rsvg-convert -w 2000 -o lorenz-xy.png lorenz-xy.svg");
     system("rsvg-convert -w 2000 -o lorenz-xz.png lorenz-xz.svg");
     system("rsvg-convert -w 2000 -o lorenz-yz.png lorenz-yz.svg");
-   /* system("rsvg-convert -w 2000 -o lorenz-phase.png lorenz-phase.svg");*/
+    system("rsvg-convert -w 2000 -o lorenz-phase.png lorenz-phase.svg");
 
     std::cout << "x[N] is: " << x[N] << ".\n";
 
