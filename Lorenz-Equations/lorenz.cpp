@@ -13,7 +13,7 @@
 // Standard template library
 using namespace std;
 
-double N     = 100000.0;                  // Number of domain elements we're integrating over
+double N     = 1000000.0;                  // Number of domain elements we're integrating over
 
 // Integration interval
 double t0    = 0.0;                       // Starting time
