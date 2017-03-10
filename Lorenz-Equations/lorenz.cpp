@@ -139,31 +139,38 @@ int main()
 	// myfilex (i-1)th entry
         myfilex     << t[i-1];
         myfilex     << " "     << x[i-1]   << "\n";
+	myfilex.precision(15);
 
 	// myfiley (i-1)th entry
         myfiley     << t[i-1];
         myfiley     << " "     << y[i-1]  << "\n";
+	myfiley.precision(15);
 
 	// myfilez (i-1)th entry
         myfilez     << t[i-1];
         myfilez     << " "     << z[i-1]  << "\n";
+	myfilez.precision(15);
 
 	// myfilexy (i-1)th entry
 	myfilexy    << x[i-1];
         myfilexy    << " "     << y[i-1]  << "\n";
+	myfilexy.precision(15);
 
 	// myfilexz (i-1)th entry
 	myfilexz    << x[i-1];
         myfilexz    << " "     << z[i-1]  << "\n";
+	myfilexz.precision(15);
 
 	// myfileyz (i-1)th entry
 	myfileyz    << y[i-1];
         myfileyz    << " "     << z[i-1]  << "\n";
+	myfileyz.precision(15);
 
 	// myfilephase (i-1)th entry
 	myfilephase << x[i-1];
 	myfilephase << " "     << y[i-1];
 	myfilephase << " "     << z[i-1]  << "\n";
+	myfilephase.precision(15);
 
         usleep(1000);
     }
