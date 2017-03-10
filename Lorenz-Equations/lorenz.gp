@@ -64,6 +64,7 @@ set style line 1 lc rgb '#0060ad' lt 2 lw 2 pt 0 ps 1.0
 plot 'lorenz-xz.txt' with linespoints ls 1
 set out
 
+# z vs y vs x
 set key off
 set terminal svg
 set out "lorenz-phase.svg"
