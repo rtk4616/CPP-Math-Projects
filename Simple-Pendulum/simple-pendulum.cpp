@@ -16,7 +16,7 @@ using namespace std;
 
 double N     = 100000.0;                 // Number of domain elements we're integrating over
 double t0    = 0.0;                      // Starting time
-double t1    = 10;                       // End time
+double t1    = 20;                       // End time
 double x0    = 0.0;                      // Initial angle from the x axis
 double dx0   = 0.0;                      // Initial rate of change in angle from x axis
 double g     = 9.8;                      // acceleration due to gravity in m/s^2
