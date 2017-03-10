@@ -25,7 +25,7 @@ double h     = (t1 - t0) / double(N);     // step size
 
 std::tuple<double, double, double> dx(double h, double sigma, double rho, double beta, double t, double x, double y, double z)
 {
-    return {h * sigma * (y - x), h * x * (rho - z) - h * y, h * x * y - h* beta * z};
+    return {h * sigma * (y - x), h * x * (rho - z) - h * y, h * x * y - h * beta * z};
 }
 
 std::tuple<double, double, double> RK4(double t, double x, double y, double z, double h)
