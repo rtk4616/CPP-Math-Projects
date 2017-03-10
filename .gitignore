@@ -3,6 +3,7 @@
 *.o
 example
 *.png
+!Lorenz_Equations.png
 *.tex
 *.eps
 *.log
