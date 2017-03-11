@@ -1,5 +1,5 @@
 all:
-	/usr/bin/g++ -Wall -fPIC -o "lorenz.o" "lorenz.cpp"
+	/usr/bin/g++ -pipe -Wall -fPIC -o "lorenz.o" "lorenz.cpp"
 	chmod +x lorenz.o
 	./lorenz.o
 clean:

@@ -32,8 +32,8 @@ double beta  = 8/3.0;
 // Step size
 double h     = (t1 - t0) / double(N);
 
-// dx is a function that returns a 3-tuple; first entry is dx/dt, second is dy/dt and third is dz/dt.
-std::tuple<double, double, double> dx(double h, double sigma, double rho, double beta, double t, double x, double y, double z)
+// dX is a function that returns a 3-tuple; first entry is dx/dt, second is dy/dt and third is dz/dt.
+std::tuple<double, double, double> dX(double h, double sigma, double rho, double beta, double t, double x, double y, double z)
 {
     return {h * sigma * (y - x), h * x * (rho - z) - h * y, h * x * y - h * beta * z};
 }
@@ -45,25 +45,25 @@ std::tuple<double, double, double> RK4(double t, double x, double y, double z, d
     // ln values are diffs in y.
     // mn values are diffs in z.
     // diff1
-    std::tuple<double, double, double> diff1 = dx(h, sigma, rho, beta, t,       x,        y,       z);
+    std::tuple<double, double, double> diff1 = dX(h, sigma, rho, beta, t,       x,        y,       z);
     double k1    = std::get<0>(diff1);
     double l1    = std::get<1>(diff1);
     double m1    = std::get<2>(diff1);
 
     // diff2
-    std::tuple<double, double, double> diff2 = dx(h, sigma, rho, beta, t + h/2, x + k1/2, y + l1/2, z + m1/2);
+    std::tuple<double, double, double> diff2 = dX(h, sigma, rho, beta, t + h/2, x + k1/2, y + l1/2, z + m1/2);
     double k2    = std::get<0>(diff2);
     double l2    = std::get<1>(diff2);
     double m2    = std::get<2>(diff2);
 
     // diff3
-    std::tuple<double, double, double> diff3 = dx(h, sigma, rho, beta, t + h/2, x + k2/2, y + l2/2, z + m2/2);
+    std::tuple<double, double, double> diff3 = dX(h, sigma, rho, beta, t + h/2, x + k2/2, y + l2/2, z + m2/2);
     double k3    = std::get<0>(diff3);
     double l3    = std::get<1>(diff3);
     double m3    = std::get<2>(diff3);
 
     // diff4
-    std::tuple<double, double, double> diff4 = dx(h, sigma, rho, beta, t + h,   x + k3,   y + l3,   z + m3);
+    std::tuple<double, double, double> diff4 = dX(h, sigma, rho, beta, t + h,   x + k3,   y + l3,   z + m3);
     double k4    = std::get<0>(diff4);
     double l4    = std::get<1>(diff4);
     double m4    = std::get<2>(diff4);
