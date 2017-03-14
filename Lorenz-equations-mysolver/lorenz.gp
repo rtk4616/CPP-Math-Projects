@@ -7,10 +7,10 @@ set key off
 set xlabel 't'
 set ylabel 'x'
 set terminal svg
-set out "lorenz-x.svg"
+set out "lorenz-tx.svg"
 set title 'Lorenz attractor' font 'Liberation Sans Bold,16'
 set style line 1 lc rgb '#0f60ad' lt 1 lw 1 pt 0 ps 1.0
-plot 'lorenz-x.txt' with linespoints ls 1 lt -1
+plot 'lorenz-tx.txt' with linespoints ls 1 lt -1
 set out
 
 #####################################################################
@@ -19,10 +19,10 @@ set key off
 set xlabel 't'
 set ylabel 'y'
 set terminal svg
-set out "lorenz-y.svg"
+set out "lorenz-ty.svg"
 set title 'Lorenz attractor' font 'Liberation Sans Bold,16'
 set style line 1 lc rgb '#0060ad' lt 1 lw 0.1 pt 0 ps 1.0
-plot 'lorenz-y.txt' with linespoints ls 1 lt -1
+plot 'lorenz-ty.txt' with linespoints ls 1 lt -1
 set out
 
 #####################################################################
@@ -31,10 +31,10 @@ set key off
 set xlabel 't'
 set ylabel 'z'
 set terminal svg
-set out "lorenz-z.svg"
+set out "lorenz-tz.svg"
 set title 'Lorenz attractor' font 'Liberation Sans Bold,16'
 set style line 1 lc rgb '#0060ad' lt 1 lw 1 pt 0 ps 1.0
-plot 'lorenz-z.txt' with linespoints ls 1 lt -1
+plot 'lorenz-tz.txt' with linespoints ls 1 lt -1
 set out
 
 #####################################################################
@@ -77,6 +77,6 @@ set out
 # 3D phase plot
 set key off
 set terminal svg
-set out "lorenz-phase.svg"
+set out "lorenz-xyz.svg"
 set title 'Lorenz attractor' font 'Liberation Sans Bold,16'
-splot "lorenz-phase.txt" with lines lt -1
+splot "lorenz-xyz.txt" with lines lt -1

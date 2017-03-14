@@ -2,15 +2,10 @@
 // Copyright (C) 2017 Brenton Horne
 // Requires C++11 support, as tuple is a type found only in C++11 or later
 // Source (of tuples only existing in C++11 and later): http://en.cppreference.com/w/cpp/utility/tuple
-#include <iostream>
-#include <tuple>
-#include <vector>
-#include <string>
-#include <fstream>
-#include <cmath>
-#include <utility>
-#include <unistd.h>
-#include <algorithm>
+#include <tuple>                // Needed for tuples, supported in C++11 and later
+#include <vector>               // Needed for vectors
+#include <fstream>              // Needed for ofstream
+#include <unistd.h>             // Needed for usleep
 
 // Standard template library
 using namespace std;
@@ -87,31 +82,35 @@ int main()
 {
     // t vector
     std::vector<double> t;
+	// add t0 to vector
     t.push_back(t0);
 
-    // x vector
+    // initialize x vector
     std::vector<double> x;
-    x.push_back(X0); // add X0 to vector
+    // add X0 to vector
+    x.push_back(X0);
 
-    // y vector
+    // initialize y vector
     std::vector<double> y;
-    y.push_back(Y0); // add Y0 to vector
+    // add Y0 to vector
+    y.push_back(Y0);
 
-    // z vector
+    // initialize z vector
     std::vector<double> z;
-    z.push_back(Z0); // add Z0 to vector
+    // add Z0 to vector
+    z.push_back(Z0);
 
     // open filetx ofstream
     ofstream filetx;
-    filetx.open("lorenz-x.txt");
+    filetx.open("lorenz-tx.txt");
 
     // open filety ofstream
     ofstream filety;
-    filety.open("lorenz-y.txt");
+    filety.open("lorenz-ty.txt");
 
     // open filetz ofstream
     ofstream filetz;
-    filetz.open("lorenz-z.txt");
+    filetz.open("lorenz-tz.txt");
 
     // open filexy ofstream
     ofstream filexy;
@@ -127,7 +126,7 @@ int main()
 
     // open filexyz ofstream
     ofstream filexyz;
-    filexyz.open("lorenz-phase.txt");
+    filexyz.open("lorenz-xyz.txt");
 
     // Loop over elements in t
     for(int i = 1; i<=N; i++)
@@ -225,13 +224,13 @@ int main()
     system("gnuplot -p lorenz.gp");
 
     // convert svg plots to png format
-    system("rsvg-convert -w 2000 -o lorenz-x.png lorenz-x.svg");
-    system("rsvg-convert -w 2000 -o lorenz-y.png lorenz-y.svg");
-    system("rsvg-convert -w 2000 -o lorenz-z.png lorenz-z.svg");
+    system("rsvg-convert -w 2000 -o lorenz-tx.png lorenz-tx.svg");
+    system("rsvg-convert -w 2000 -o lorenz-ty.png lorenz-ty.svg");
+    system("rsvg-convert -w 2000 -o lorenz-tz.png lorenz-tz.svg");
     system("rsvg-convert -w 2000 -o lorenz-xy.png lorenz-xy.svg");
     system("rsvg-convert -w 2000 -o lorenz-xz.png lorenz-xz.svg");
     system("rsvg-convert -w 2000 -o lorenz-yz.png lorenz-yz.svg");
-    system("rsvg-convert -w 2000 -o lorenz-phase.png lorenz-phase.svg");
+    system("rsvg-convert -w 2000 -o lorenz-xyz.png lorenz-xyz.svg");
 
     // exit
     return 0;
