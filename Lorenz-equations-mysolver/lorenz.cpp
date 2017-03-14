@@ -27,7 +27,7 @@ double X0    = 1.0;                       // x(t0)
 double Y0    = 1.0;                       // y(t0)
 double Z0    = 1.0;                       // z(t0)
 
-// Parameters, a copy of this equation is in this directory
+// Parameters, a copy of the Lorenz equations (using these exact symbols to denote the parameters) is in Lorenz_Equations.png
 double rho   = 28;
 double sigma = 10;
 double beta  = 8/3.0;
@@ -39,9 +39,9 @@ double h     = (t1 - t0) / double(N);
 std::tuple<double, double, double> dX(double h, double sigma, double rho, double beta, double t, double x, double y, double z)
 {
     // Used to use:
-	// return {h * sigma * (y - x), h * x * (rho - z) - h * y, h * x * y - h * beta * z}
-	// But that is inconsistent with GCC < 6 and Clang. 
-	// Eugene Porotov (https://www.facebook.com/eugene.porotov?fref=ufi) came up with the idea to use make_tuple instead
+    // return {h * sigma * (y - x), h * x * (rho - z) - h * y, h * x * y - h * beta * z}
+    // But that is inconsistent with GCC < 6 and Clang. 
+    // Eugene Porotov (https://www.facebook.com/eugene.porotov?fref=ufi) came up with the idea to use make_tuple instead
     return std::make_tuple(h * sigma * (y - x), h * x * (rho - z) - h * y, h * x * y - h * beta * z);
 }
 
