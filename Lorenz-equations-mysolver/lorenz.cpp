@@ -5,7 +5,6 @@
 #include <tuple>                // Needed for tuples, supported in C++11 and later
 #include <vector>               // Needed for vectors
 #include <fstream>              // Needed for ofstream
-#include <unistd.h>             // Needed for usleep
 
 // Standard template library
 using namespace std;
@@ -82,7 +81,7 @@ int main()
 {
     // t vector
     std::vector<double> t;
-	// add t0 to vector
+    // add t0 to vector
     t.push_back(t0);
 
     // initialize x vector
@@ -178,8 +177,6 @@ int main()
         filexyz << " "     << y[i-1];
         filexyz << " "     << z[i-1]  << "\n";
         filexyz.precision(15);
-
-        usleep(1000);
     }
 
     // filetx Nth entry
