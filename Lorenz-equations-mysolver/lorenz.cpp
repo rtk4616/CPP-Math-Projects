@@ -2,6 +2,8 @@
 // Copyright (C) 2017 Brenton Horne
 // Requires C++11 support, as tuple is a type found only in C++11 or later
 // Source (of tuples only existing in C++11 and later): http://en.cppreference.com/w/cpp/utility/tuple
+// Clang 3.3 and later, as well as GCC 4.7 and later have at least experimental support for C++11
+// I have compiled this program successfully with GCC 4.8, 5.4, 6.1, 6.2 and 6.3. 
 #include <tuple>                // Needed for tuples, supported in C++11 and later
 #include <vector>               // Needed for vectors
 #include <fstream>              // Needed for ofstream
@@ -9,7 +11,8 @@
 // Standard template library
 using namespace std;
 
-// Number of domain elements we're integrating over
+// Number of domain elements we're integrating over. 
+// Cannot go beyond 10,000,000 as otherwise the SVG becomes too large for rsvg-convert to handle.
 double N     = 1000000.0;
 
 // Integration interval
@@ -39,7 +42,8 @@ std::tuple<double, double, double> dX(double h, double sigma, double rho, double
     return std::make_tuple(h * sigma * (y - x), h * x * (rho - z) - h * y, h * x * y - h * beta * z);
 }
 
-// RK4 is a function that returns a 3-tuple; first entry is the diff in x, second is diff in y and third is diff in z.
+// RK4 is a function that returns a 3-tuple of Runge-Kutta fourth-order differences.
+// First entry is the diff in x, second is diff in y and third is diff in z.
 std::tuple<double, double, double> RK4(double t, double x, double y, double z, double h)
 {
     // kn values are diffs in x.
