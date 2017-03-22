@@ -137,12 +137,12 @@ int main()
         // delta X
         // Where X = (x, y, z)
         // So delta X is the change in X elements
-        std::tuple<double, double, double> diff = RK4(t[i-1], x[i-1], y[i-1], z[i-1], h);
+        std::tuple<double, double, double> deltaX = RK4(t[i-1], x[i-1], y[i-1], z[i-1], h);
 
         // diffs in x, y and z
-        double deltax = std::get<0>(diff);
-        double deltay = std::get<1>(diff);
-        double deltaz = std::get<2>(diff);
+        double deltax = std::get<0>(deltaX);
+        double deltay = std::get<1>(deltaX);
+        double deltaz = std::get<2>(deltaX);
 
         // add an ith element to t
         t.push_back( t[i-1] + h      );
