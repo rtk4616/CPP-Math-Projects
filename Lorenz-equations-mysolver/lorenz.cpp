@@ -4,9 +4,9 @@
 // Source (of tuples only existing in C++11 and later): http://en.cppreference.com/w/cpp/utility/tuple
 // Clang 3.3 and later, as well as GCC 4.7 and later have at least experimental support for C++11
 // I have compiled this program successfully with GCC 4.8, 5.4, 6.1, 6.2 and 6.3. 
-#include <tuple>                // Needed for tuples, supported in C++11 and later
-#include <vector>               // Needed for vectors
-#include <fstream>              // Needed for ofstream
+#include <tuple>                                           // Needed for tuples, supported in C++11 and later
+#include <vector>                                          // Needed for vectors
+#include <fstream>                                         // Needed for ofstream
 
 // Standard template library
 using namespace std;
@@ -16,13 +16,13 @@ using namespace std;
 double N     = 1000000.0;
 
 // Integration interval
-double t0    = 0.0;                       // Starting time
-double t1    = 100;                       // End time
+double t0    = 0.0;                                        // Starting time
+double t1    = 100;                                        // End time
 
 // Initial conditions
-double X0    = 1.0;                       // x(t0)
-double Y0    = 1.0;                       // y(t0)
-double Z0    = 1.0;                       // z(t0)
+double X0    = 1.0;                                        // x(t0)
+double Y0    = 1.0;                                        // y(t0)
+double Z0    = 1.0;                                        // z(t0)
 
 // Parameters, a copy of the Lorenz equations (using these exact symbols to denote the parameters) is in Lorenz_Equations.png
 double rho   = 28;
@@ -74,9 +74,9 @@ std::tuple<double, double, double> RK4(double t, double x, double y, double z, d
     double m4    = std::get<2>(diff4);
 
     // diff in x, y, z
-    double diffx = (k1 + 2 * k2 + 2 * k3 + k4)/float(6);  // diff in x.
-    double diffy = (l1 + 2 * l2 + 2 * l3 + l4)/float(6);  // diff in y.
-    double diffz = (m1 + 2 * m2 + 2 * m3 + m4)/float(6);  // diff in z.
+    double diffx = (k1 + 2 * k2 + 2 * k3 + k4)/float(6);   // diff in x.
+    double diffy = (l1 + 2 * l2 + 2 * l3 + l4)/float(6);   // diff in y.
+    double diffz = (m1 + 2 * m2 + 2 * m3 + m4)/float(6);   // diff in z.
 
     return std::make_tuple(diffx, diffy, diffz);
 }
