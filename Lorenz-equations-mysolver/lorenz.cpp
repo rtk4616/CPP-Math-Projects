@@ -134,17 +134,24 @@ int main()
     // Loop over elements in t
     for(int i = 1; i<=N; i++)
     {
-
+        // delta X
+        // Where X = (x, y, z)
+        // So delta X is the change in X elements
         std::tuple<double, double, double> diff = RK4(t[i-1], x[i-1], y[i-1], z[i-1], h);
 
+        // diffs in x, y and z
+        double deltax = std::get<0>(diff);
+        double deltay = std::get<1>(diff);
+        double deltaz = std::get<2>(diff);
+
         // add an ith element to t
-        t.push_back( t[i-1] + h                 );
+        t.push_back( t[i-1] + h      );
         // add an ith element to x
-        x.push_back( x[i-1] + std::get<0>(diff) );
+        x.push_back( x[i-1] + deltax );
         // add an ith element to y
-        y.push_back( y[i-1] + std::get<1>(diff) );
+        y.push_back( y[i-1] + deltay );
         // add an ith element to z
-        z.push_back( z[i-1] + std::get<2>(diff) );
+        z.push_back( z[i-1] + deltaz );
 
         // filetx (i-1)th entry
         filetx     << t[i-1];
