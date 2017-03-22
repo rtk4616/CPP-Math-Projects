@@ -154,18 +154,18 @@ int main()
         z.push_back( z[i-1] + deltaz );
 
         // filetx (i-1)th entry
-        filetx     << t[i-1];
-        filetx     << " "     << x[i-1]   << "\n";
+        filetx    << t[i-1];
+        filetx    << " "     << x[i-1]   << "\n";
         filetx.precision(15);
 
         // filety (i-1)th entry
-        filety     << t[i-1];
-        filety     << " "     << y[i-1]  << "\n";
+        filety    << t[i-1];
+        filety    << " "     << y[i-1]  << "\n";
         filety.precision(15);
 
         // filetz (i-1)th entry
-        filetz     << t[i-1];
-        filetz     << " "     << z[i-1]  << "\n";
+        filetz    << t[i-1];
+        filetz    << " "     << z[i-1]  << "\n";
         filetz.precision(15);
 
         // filexy (i-1)th entry
