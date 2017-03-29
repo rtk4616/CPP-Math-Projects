@@ -1,4 +1,4 @@
-# Requires support for C++ 11
+# Requires support for C++ 11 (lorenz.cpp includes tuples)
 # Clang 3.3 and later, as well as GCC 4.7 and later have at least experimental support for C++11
 # 7m  52s is runtime with no -On flag
 # 10m 25s is how long it takes to compile with -O2
