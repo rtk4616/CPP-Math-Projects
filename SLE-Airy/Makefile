@@ -1,2 +1,2 @@
 all:
-	/usr/bin/g++ -Wall -fPIC -o "main.o" "main.cpp" && chmod +x main.o && ./main.o
+	/usr/bin/g++ -std=c++11 -Wall -fPIC -o "main.o" "main.cpp" && chmod +x main.o && ./main.o
