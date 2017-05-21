@@ -15,10 +15,9 @@ int factorial(int n)
 }
 
 int main() {
-    int N = 20;
     float e = 0;
 
-    for(int n = 0; n<=N; ++n)
+    for(int n = 0; n<=10; ++n)
          e = e + 1.0/factorial(n);
 
     printf("%.6f", e);
