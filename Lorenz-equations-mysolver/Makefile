@@ -4,7 +4,7 @@
 # 10m 25s is how long it takes to compile with -O2
 # 4m  58s is how long it takes to compile with -O3
 all:
-	/usr/bin/g++ -std=c++11 -pipe -Wall -fPIC -o "lorenz.o" "lorenz.cpp"
+	clang++ -std=c++11 -O4 -pipe -Wall -fPIC -o "lorenz.o" "lorenz.cpp"
 	chmod +x lorenz.o
 	./lorenz.o
 clean:
