@@ -1,5 +1,5 @@
 // Lorenz equation solver
-// Copyright (C) 2017 Brenton Horne
+// Copyright (C) 2017 fusion809
 // Requires C++11 support, as tuple is a type found only in C++11 or later
 // Source (of tuples only existing in C++11 and later): http://en.cppreference.com/w/cpp/utility/tuple
 // Clang 3.3 and later, as well as GCC 4.7 and later have at least experimental support for C++11
