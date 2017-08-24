@@ -15,6 +15,7 @@ using namespace std;
 int N    = 30;
 double x = 1.0;
 
+// Factorial function
 int fact(int n)
 {
     if(n<=1) 
@@ -26,18 +27,20 @@ int fact(int n)
     }
 }
 
+// Main function
 int main()
 {
     double f = 0;
     double X = 1;
     for(int i = 0; i<=N; i++)
     {
+         // Compute series
          f = f + X/fact(i);
+         // Calculate x^i
          X = X * x;
     }
 
     std::cout << "Exp(";
-    //<< std::scientific;
     std::cout.precision(15);
     std::cout << x << ")=";
     std::cout << f;
