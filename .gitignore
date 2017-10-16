@@ -19,3 +19,4 @@ simple-pendulum
 *.swp
 *.swo
 octave-workspace
+lorenz
